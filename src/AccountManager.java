@@ -271,6 +271,7 @@ public class AccountManager {
                         System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
                         System.out.println("☁︎     아이디가 없어요.다시 확인해주세요.");
                         System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+
                     }
 
 
@@ -292,13 +293,17 @@ public class AccountManager {
                             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
                             //로그인 되면 탈출하고 게임 가기
                             return;
-                        } else {
-                            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                            System.out.println("☁︎     비밀번호가 틀립니다. 다시 확인해주세요");
-                            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                            break;
                         }
+//                        } else {
+//                            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+//                            System.out.println("☁︎     비밀번호가 틀립니다. 다시 확인해주세요");
+//                            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+//                            break;
+//                        }
                     } //<-- 비밀번호 검사
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    System.out.println("☁︎     비밀번호가 틀립니다. 다시 확인해주세요");
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
                 }
             }
 
@@ -363,13 +368,36 @@ public class AccountManager {
 //                        System.out.println(user.getGameId());
                         if (gameId.equals(user.getGameId())) {
                             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                            System.out.println("☁︎     아이디가 확인되었습니다.");
+                            System.out.println("☁︎     아이디는 확인되었습니다.");
                             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                            System.out.println(user.getUserName());
-                            System.out.println(user.getPassWord());
-                            id_Check = true;
-                            break;
-                        }
+                            for (; ; ) {
+                                System.out.println("☁︎     이름을 입력하세요.");
+                                System.out.print("☁︎     ➤");
+                                String inputUserName = sc.nextLine();
+                                String name = user.getUserName();
+
+                                if (inputUserName.equals(name)) {
+                                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                                    System.out.println("☁︎     이름이 일치합니다.");
+                                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                                    String savedPassword = user.getPassWord();
+                                    System.out.println("☁︎     당신의 비밀번호를 알려드립니다.");
+                                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                                    System.out.printf("☁︎     귀하의 비밀번호는 %s 입니다.\n", savedPassword);
+                                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                                    id_Check = true;
+                                } else {
+                                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                                    System.out.println("☁︎     아쉽게도 이름이 틀렸습니다.");
+                                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                                }
+
+                                if (id_Check) {
+                                    return;
+                                }
+                            }
+
+                        }  //if
                     }
                     if (id_Check) {
                         break;
@@ -379,7 +407,9 @@ public class AccountManager {
                         System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
                     }
 
-
+                    if (id_Check) {
+                        break;
+                    }
                     //아예 없으면 다시 나가도록
                 }
             }
