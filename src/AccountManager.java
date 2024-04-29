@@ -107,9 +107,17 @@ public class AccountManager {
             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
 
             for (; ; ) {
+                System.out.println("☁︎                        [메뉴로 돌아가기:q]");
+                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
                 System.out.print("☁︎     사용할 아이디를 입력하세요: ");
                 gameId = sc.nextLine();
                 if (gameId.equals("") || gameId == null) System.out.println("☁︎     아이디를 다시 입력하세요.");
+                else if(gameId.equals("q")) {
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    System.out.println("메뉴로 돌아갑니다.");
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    return;
+                }
                 else {
                     //아이디 중복 검사
                     for (User user : userList) {
@@ -133,15 +141,33 @@ public class AccountManager {
             }
 
             for (; ; ) {
+                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                System.out.println("☁︎                        [메뉴로 돌아가기:q]");
+                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
                 System.out.print("☁︎     이름을 입력하세요: ");
                 userName = sc.nextLine();
                 if (userName.equals("") || userName == null) System.out.println("☁︎     이름을 다시 입력하세요.");
+                else if(userName.equals("q")) {
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    System.out.println("메뉴로 돌아갑니다.");
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    return;
+                }
                 else break;
             }
             for (; ; ) {
+                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                System.out.println("☁︎                        [메뉴로 돌아가기:q]");
+                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
                 System.out.print("☁︎     사용할 비밀번호를 입력하세요: ");
                 passWord = sc.nextLine();
                 if (passWord.equals("") || passWord == null) System.out.println("☁︎     비밀번호를 다시 입력하세요.");
+                else if(passWord.equals("q")) {
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    System.out.println("메뉴로 돌아갑니다.");
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    return;
+                }
                 else break;
             }
             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
@@ -247,10 +273,18 @@ public class AccountManager {
             //로그인 Try
             //====================================
             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+            System.out.println("☁︎                        [메뉴로 돌아가기:q]");
+            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
             for (; ; ) {
                 System.out.print("☁︎     접속할 아이디를 입력하세요: ");
                 gameId = sc.nextLine();
                 if (gameId.equals("") || gameId == null) System.out.println("☁︎     아이디를 다시 입력하세요.");
+                else if(gameId.equals("q")) {
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    System.out.println("메뉴로 돌아갑니다.");
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    return;
+                }
                 else {
                     //아이디 null 아닐때
                     //아이디 검사
@@ -280,9 +314,18 @@ public class AccountManager {
             }
 
             for (; ; ) {
+                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                System.out.println("☁︎                        [메뉴로 돌아가기:q]");
+                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
                 System.out.print("☁︎     비밀번호를 입력하세요: ");
                 password = sc.nextLine();
                 if (password.equals("") || password == null) System.out.println("☁︎     비밀번호를 다시 입력하세요.");
+                else if(password.equals("q")) {
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    System.out.println("메뉴로 돌아갑니다.");
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    return;
+                }
                 else {
                     //비밀번호 검사
                     for (User user : userList) {
@@ -356,10 +399,19 @@ public class AccountManager {
             //로그인 Try
             //====================================
             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+            System.out.println("☁︎                        [메뉴로 돌아가기:q]");
+            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+
             for (; ; ) {
                 System.out.print("☁︎     찾고싶은 아이디를 입력하세요: ");
                 gameId = sc.nextLine();
                 if (gameId.equals("") || gameId == null) System.out.println("☁︎     아이디를 다시 입력하세요.");
+                else if(gameId.equals("q")) {
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    System.out.println("메뉴로 돌아갑니다.");
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    return;
+                }
                 else {
                     //아이디 null 아닐때
                     //아이디 검사
