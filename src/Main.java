@@ -27,7 +27,7 @@ public class Main {
             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
             System.out.println("☁︎        1. 회원가입                    ☁︎");
             System.out.println("☁︎        2. 로그인 ➤ 게임시작             ☁︎"); //# 3. 영화 초성 게임 로그인 되면 나오도록
-            System.out.println("☁︎        3. ID/PW 찾기                 ☁︎");
+            System.out.println("☁︎        3. PW 찾기                    ☁︎");
             System.out.println("☁︎        4. 게임 종료                   ☁︎");
             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
             System.out.print(">> ");
