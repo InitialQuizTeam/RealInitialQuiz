@@ -1,5 +1,7 @@
 package src;
 
+import src.initialQuizRiin.GameMain;
+
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -49,7 +51,9 @@ public class Main {
                     break;
                 case 2:
                     //로그인/ 게임시작
-                    AccountManager.TryLogin();
+                    //AccountManager.TryLogin();
+                    GameMain gameMain = new GameMain();
+                    gameMain.main();
                     break;
                 case 3:
                     // 비밀번호 찾기

@@ -19,7 +19,7 @@ public class Game {
         System.out.println("▶ 초성: " + initial + "\n");
 
         while (chances > 0) {
-            System.out.print("정답을 입력하세요: ");
+            System.out.print("\n정답을 입력하세요: ");
             String guess = scanner.nextLine();
 
             if (guess.equals(title)) {
