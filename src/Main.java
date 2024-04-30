@@ -25,10 +25,10 @@ public class Main {
             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
             System.out.println("☁︎☁︎☁︎☁︎☁︎      초성 맞추기 게임      ☁︎☁︎☁︎☁︎☁︎");
             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-            System.out.println("☁︎        1. 회원가입                    ☁︎");
-            System.out.println("☁︎        2. 로그인 ➤ 게임시작             ☁︎"); //# 3. 영화 초성 게임 로그인 되면 나오도록
-            System.out.println("☁︎        3. PW 찾기                    ☁︎");
-            System.out.println("☁︎        4. 게임 종료                   ☁︎");
+            System.out.println("☁︎        1. 회원가입                    ");
+            System.out.println("☁︎        2. 로그인 ➤ 게임시작             "); //# 3. 영화 초성 게임 로그인 되면 나오도록
+            System.out.println("☁︎        3. PW 찾기                    ");
+            System.out.println("☁︎        4. 게임 종료                   ");
             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
             System.out.print(">> ");
             String inputString = null;
@@ -50,10 +50,12 @@ public class Main {
                 case 2:
                     //로그인/ 게임시작
                     AccountManager.TryLogin();
+//                    AccountManager.addScore("dragon",33);
                     break;
                 case 3:
                     // 비밀번호 찾기
                     AccountManager.tryGetPassword();
+
                     break;
                 case 4:
                     //종료
