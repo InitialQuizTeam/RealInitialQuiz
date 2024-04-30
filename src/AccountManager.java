@@ -480,55 +480,71 @@ public class AccountManager {
 
                 gameId = GameUserName;
 
-                    //아이디 검사
-                    boolean id_Check = false;
+                //아이디 검사
+                boolean id_Check = false;
 
-                    //반복 시작
-                    for (User user : userList) {
+                //반복 시작
+                for (User user : userList) {
 
-                        if (gameId.equals(user.getGameId())) {
+                    if (gameId.equals(user.getGameId())) {
 //                            tempText += "👻";
-                            tempText += user.getGameId() + ",";
-                            tempText += user.getUserName() + ",";
-                            tempText += user.getPassWord() + ",";
-                            tempText += Gamescore + ",";               //점수
-                            tempText += user.getGameLife() + ",";
-                            tempText += user.getHint() + "\n";
+                        tempText += user.getGameId() + ",";
+                        tempText += user.getUserName() + ",";
+                        tempText += user.getPassWord() + ",";
+                        tempText += Gamescore + ",";               //점수
+                        tempText += user.getGameLife() + ",";
+                        tempText += user.getHint() + "\n";
 //                            System.out.print(tempText);
-                            id_Check = true;  //아이디 접근 완료
-                            //end if
-                        } else {           //아이디 아니면 그냥 복사
-                            tempText+=user.getGameId()+",";
-                            tempText+=user.getUserName()+",";
-                            tempText+=user.getPassWord()+",";
-                            tempText+=user.getScore()+",";
-                            tempText+=user.getGameLife()+",";
-                            tempText+=user.getHint()+"\n";
+                        id_Check = true;  //아이디 접근 완료
+                        //end if
+                    } else {           //아이디 아니면 그냥 복사
+                        tempText+=user.getGameId()+",";
+                        tempText+=user.getUserName()+",";
+                        tempText+=user.getPassWord()+",";
+                        tempText+=user.getScore()+",";
+                        tempText+=user.getGameLife()+",";
+                        tempText+=user.getHint()+"\n";
 //                        tempText+=user;
 //                            System.out.print(tempText);
-                        }
                     }
-                    //아예 없으면 다시 나가도록
-                    if(!id_Check) return;
+                }
+                //아예 없으면 다시 나가도록
+                if(!id_Check) return;
 
-                    //System.out.print(tempText); //데이터 찍어보기
-                    FileWriter fw = new FileWriter(tempfile);
-                    BufferedWriter bw = new BufferedWriter(fw);
-                    bw.write(tempText,0,tempText.length());
 
-                    if(originfile.exists() && tempfile.exists())originfile.delete();
-
-                    tempfile.renameTo(originfile);
-                    bw.close();
-                    break;
+                break;
             }
 
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //System.out.print(tempText); //데이터 찍어보기
+        try(FileWriter fw = new FileWriter(tempfile)){
+
+            fw.write(tempText,0,tempText.length());
+
+            if(originfile.exists() && tempfile.exists()) {
+//                        originfile.delete();
+
+                Files.delete(Paths.get(targetPath));
+            }
+            fw.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+//tempfile.renameTo(originfile);
+        //파일 이전 작업
+        try {
+            Files.move(tempfile.toPath(), originfile.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     } //end addScore
+
+
 
 
     //##사용 안하는 함수
