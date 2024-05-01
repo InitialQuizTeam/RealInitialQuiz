@@ -1,5 +1,7 @@
 package src;
 
+import src.initialQuizRiin.GameMain;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -290,6 +292,8 @@ public class AccountManager {
                             System.out.println("☁︎     비밀번호가 확인되었습니다.");
                             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
                             //로그인 되면 탈출하고 게임 가기
+                            GameMain gameMain = new GameMain();
+                            gameMain.main(user.getGameId());
                             return;
                         }
 //                        } else {
