@@ -9,13 +9,13 @@ import java.util.Scanner;
 
 public class GameMain {
 
-    public void main(String gameId){
+    public void Game(String gameId){
 
         Scores scores = new Scores(); // Scores 객체 생성
 
-        System.out.println("1");
+//        System.out.println("1");
         scores.FileExample();
-        System.out.println("2");
+//        System.out.println("2");
         Scanner scanner = new Scanner(System.in);
         Map<String, int[]> movieHints = createMovieHints(); // 영화 힌트 생성
 
@@ -28,7 +28,7 @@ public class GameMain {
         System.out.println( gameId + "님 최종 점수 : " + scores.getScore() + "점");
         AccountManager.addScore(gameId, scores.getScore());
         scores.FileExample();
-        scanner.close();
+//        scanner.close();
     }
 
     private static Map<String, int[]> createMovieHints() {

@@ -1,5 +1,6 @@
 package src;
 
+import src.initialQuizRiin.DeleteFileFunction;
 import src.initialQuizRiin.GameMain;
 
 import java.io.*;
@@ -9,6 +10,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import static java.lang.Thread.sleep;
 
 public class AccountManager {
     /**
@@ -30,7 +33,7 @@ public class AccountManager {
     static String tempPath = ROOT_PATH + "/CommonTextFile/temp.txt";
 
 
-    static Scanner sc = new Scanner(System.in);
+
 
     ////////////////////
     // ☘️ 회원가입
@@ -110,7 +113,7 @@ public class AccountManager {
         //write
         try (FileWriter fw = new FileWriter(newfile, true)) {
             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-
+            Scanner sc = new Scanner(System.in);
             for (; ; ) {
                 System.out.println("☁︎                        [메뉴로 돌아가기:q]");
                 System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
@@ -178,7 +181,7 @@ public class AccountManager {
 
             //파일로 저장
             fw.write(outputMessage);
-
+            sc.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -194,6 +197,12 @@ public class AccountManager {
 
         String gameId = null;   //게임 아이디
         String password = null; //비밀번호
+        String truePassword = null;
+        String LoginId = null;
+        File originfile = new File(targetPath);
+        File sameFileName = new File(targetPath);
+
+//
 
         //접근할 파일 위치 지정 : targetPath: memberList.txt
         try (FileReader fr = new FileReader(targetPath)) {
@@ -204,7 +213,7 @@ public class AccountManager {
 
             //회원 정보 저장할 리스트 생성
             List<User> userList = new ArrayList<>();
-
+            Scanner sc = new Scanner(System.in);
             while (true) {
                 String s = br.readLine();
                 if (s == null) break;
@@ -254,6 +263,9 @@ public class AccountManager {
                             System.out.println("☁︎     아이디가 확인되었습니다.");
                             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
                             id_Check = true;
+                            LoginId = user.getGameId();
+                            truePassword = user.getPassWord();
+//                            System.out.println("truePassword = " + truePassword);
                             break;
                         }
                     }
@@ -270,7 +282,7 @@ public class AccountManager {
                     //아예 없으면 다시 나가도록
                 }
             }
-
+            //비밀번호 검증
             for (; ; ) {
                 System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
                 System.out.println("☁︎                        [메뉴로 돌아가기:q]");
@@ -285,33 +297,46 @@ public class AccountManager {
                     return;
                 } else {
                     //비밀번호 검사
-                    for (User user : userList) {
-//                        System.out.println(user.getGameId());
-                        if (password.equals(user.getPassWord())) {
-                            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                            System.out.println("☁︎     비밀번호가 확인되었습니다.");
-                            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                            //로그인 되면 탈출하고 게임 가기
-                            GameMain gameMain = new GameMain();
-                            gameMain.main(user.getGameId());
-                            return;
-                        }
-//                        } else {
-//                            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-//                            System.out.println("☁︎     비밀번호가 틀립니다. 다시 확인해주세요");
-//                            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-//                            break;
+                    if (password.equals(truePassword)) {
+                        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                        System.out.println("☁︎     비밀번호가 확인되었습니다.");
+                        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                        //로그인 되면 탈출하고 게임 가기
+//                        File originfile = new File(targetPath);
+//                        File sameFileName = new File(targetPath);
+
+//                        if(originfile.renameTo(sameFileName)){
+//                            // if the file is renamed
+//                            System.out.println("file is closed1");
+//                        }else{
+//                            // if the file didnt accept the renaming operation
+//                            System.out.println("file is opened1");
 //                        }
-                    } //<-- 비밀번호 검사
-                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                    System.out.println("☁︎     비밀번호가 틀립니다. 다시 확인해주세요");
-                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+
+                        break;
+                    } else {
+                        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                        System.out.println("☁︎     비밀번호가 틀립니다. 다시 확인해주세요");
+                        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    }
                 }
+
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+//        if(originfile.renameTo(sameFileName)){
+//            // if the file is renamed
+//            System.out.println("file is closed1");
+//        }else{
+//            // if the file didnt accept the renaming operation
+//            System.out.println("file is opened1");
+//        }
+
+//        System.out.println("로그인해서 여기로");
+        GameMain gameMain = new GameMain();
+        gameMain.Game(LoginId);
     }//end TryLogin
 
     /////////////////////
@@ -329,7 +354,7 @@ public class AccountManager {
 
             //회원 정보 저장할 리스트 생성
             List<User> userList = new ArrayList<>();
-
+            Scanner sc = new Scanner(System.in);
             while (true) {
                 String s = br.readLine();
                 if (s == null) break;
@@ -432,9 +457,25 @@ public class AccountManager {
 
     /////////////////////
     // ☘️ 점수 수정 테스트
-    public static void addScore(String GameUserName,int Gamescore) {
+    public static void addScore(String GameUserName, int Gamescore) {
         File originfile = new File(targetPath);
+//        System.out.println("originfile = " + originfile);
+
+        File sameFileName = new File(targetPath);
+
+//        if(originfile.renameTo(sameFileName)){
+//            // if the file is renamed
+//            System.out.println("file is closed");
+//        }else{
+//            // if the file didnt accept the renaming operation
+//            System.out.println("file is opened");
+//        }
+
         File tempfile = new File(tempPath);
+//        System.out.println("tempfile = " + tempfile);
+
+//        System.out.println("GameUserName = " + GameUserName);
+//        System.out.println("Gamescore = " + Gamescore);
 
         if (!tempfile.exists()) {
             try {
@@ -450,11 +491,12 @@ public class AccountManager {
         String tempText = "";
 
         //접근할 파일 위치 지정 : targetPath: memberList.txt
-        try (FileReader fr = new FileReader(targetPath)) {
+//        try (FileReader fr = new FileReader(targetPath)) {
+        try (BufferedReader br = new BufferedReader(new FileReader(targetPath))) {
             //읽는 방법 = 2
             //보조스트링 활용
             //텍스트를 라인 단위로 읽어들이는 보조 스트림
-            BufferedReader br = new BufferedReader(fr);
+//            BufferedReader br = new BufferedReader(fr);
 
             //회원 정보 저장할 리스트 생성
             List<User> userList = new ArrayList<>();
@@ -502,53 +544,67 @@ public class AccountManager {
                         id_Check = true;  //아이디 접근 완료
                         //end if
                     } else {           //아이디 아니면 그냥 복사
-                        tempText+=user.getGameId()+",";
-                        tempText+=user.getUserName()+",";
-                        tempText+=user.getPassWord()+",";
-                        tempText+=user.getScore()+",";
-                        tempText+=user.getGameLife()+",";
-                        tempText+=user.getHint()+"\n";
+                        tempText += user.getGameId() + ",";
+                        tempText += user.getUserName() + ",";
+                        tempText += user.getPassWord() + ",";
+                        tempText += user.getScore() + ",";
+                        tempText += user.getGameLife() + ",";
+                        tempText += user.getHint() + "\n";
 //                        tempText+=user;
 //                            System.out.print(tempText);
                     }
                 }
-                //아예 없으면 다시 나가도록
-                if(!id_Check) return;
 
+                br.close();
+                //아예 없으면 다시 나가도록
+                if (!id_Check) return;
 
                 break;
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         //System.out.print(tempText); //데이터 찍어보기
-        try(FileWriter fw = new FileWriter(tempfile)){
-
-            fw.write(tempText,0,tempText.length());
-
-            if(originfile.exists() && tempfile.exists()) {
-//                        originfile.delete();
-
-                Files.delete(Paths.get(targetPath));
-            }
-            fw.close();
+//        try (FileWriter fw = new FileWriter(tempfile)) {
+        try (BufferedWriter bw = new BufferedWriter(new java.io.FileWriter(tempfile));) {
+            bw.write(tempText, 0, tempText.length());
+            bw.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
+        DeleteFileFunction delete = new DeleteFileFunction();
+        delete.delete();
+//        try {
+//            System.out.println("originfile = " + originfile);
+//            if (originfile.exists()) {
+//                Files.delete(Paths.get(targetPath));
+//            }
+//            if(originfile.exists()){
+//                originfile.deleteOnExit();
+//            }
+//
+//        } catch (Exception e) {
+//            System.out.println("삭제에 문제가 있습니다~!");
+//            System.out.println(e);
+//        }
+
+        try {
+            sleep(1500); //
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 //tempfile.renameTo(originfile);
         //파일 이전 작업
         try {
             Files.move(tempfile.toPath(), originfile.toPath());
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("이전에 실패했습니다.");
+            System.out.println(e);
         }
 
     } //end addScore
-
-
 
 
     //##사용 안하는 함수
@@ -569,13 +625,9 @@ public class AccountManager {
                 String s = br.readLine();
                 if (s == null) break;
 
-                //읽는 방법 = 1
-//            int read = fr.read();
-//            System.out.println("(char)read = " + (char)read);
                 //파일 생성 명령
                 //읽은 것을 콤마로 구분하여 분리하여 배열로 만든다
                 String[] split = s.split(",");
-//                System.out.println(Arrays.toString(split));
 
                 // 읽어들인 회원정보로 회원 객체 생성
                 User user = new User(
@@ -596,6 +648,4 @@ public class AccountManager {
             e.printStackTrace();
         }
     }//end UserView
-
-
 }   //end class
