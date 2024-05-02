@@ -1,18 +1,44 @@
 package src;
 
+import src.initialQuizRiin.Sun;
+
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class KoreanMusicInitialGame {
+    static Scores scores = new Scores();
+    private static Map<String, String[]> musicTitleHints;
+    private static Scanner scanner = new Scanner(System.in);
+    private static Random random = new Random();
+    private static boolean playAgain = true;
+    private static String[] emoticons = {"🍕", "🌭", "🍔", "🍟", "🍰"};
 
+    public static void main(String gameId) {
+        initializeMusicTitleHints();
 
+        System.out.println("노래 제목 이어말하기 게임이 시작됩니다.");
+        System.out.println("노래 제목을 이어말하는 게임으로, 정답은 노래 제목 전체를 적어주세요");
+        System.out.println("게임 종료를 원한다면 ✨종료✨라고 입력해주시고,");
+        System.out.println("힌트를 원한다면 ✨힌트✨라고 입력해주세요!");
+        System.out.println("3초 후 게임이 시작됩니다\n");
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-    private static Map<String, String[]> musicTitleHints; // 클래스 변수로 선언
+        while (playAgain) {
+            playGame();
+            askForRestart();
+        }
 
-    static {
-        // 노래 제목과 힌트의 맵을 초기화
-        musicTitleHints = createMusicTitleHints();
+        System.out.println("게임이 종료되었습니다. 감사합니다!");
+        System.out.println( gameId + "님 최종 점수 : " + scores.getScore() + "점");
     }
 
+    private static void initializeMusicTitleHints() {
+        musicTitleHints = createMusicTitleHints();
+    }
 
     private static Map<String, String[]> createMusicTitleHints() {
         Map<String, String[]> musicHints = new HashMap<>();
@@ -49,7 +75,6 @@ public class KoreanMusicInitialGame {
         String[]sinchon={"이대 다음","이대 전"};
         String[]wind={"바람 불어와","나얼"};
 
-
         // 노래 제목과 해당 힌트를 해시맵에 저장
         musicHints.put("강남-스타일",gangnam);
         musicHints.put("모든 날,- 모든 순간",everyday);
@@ -76,32 +101,44 @@ public class KoreanMusicInitialGame {
         musicHints.put("걱정말아-요 그대",worry);
         musicHints.put("마에스-트로",maestro);
         musicHints.put("비밀번호-486",password);
-        musicHints.put("...사랑했-잖아...",ryn);
         musicHints.put("신촌-을 못 가",sinchon);
         musicHints.put("바람-기억",wind);
+
         return musicHints;
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
-        boolean playAgain = true;
 
-        System.out.println("이어말하기 게임!");
-
-        while (playAgain) {
-            String musicTitle = getRandomMusicTitle(random);
+    private static void playGame() {
+        int emoticonIndex = emoticons.length - 1;
+        while (playAgain && emoticonIndex >= 0) {
+            String musicTitle = getRandomMusicTitle();
             String[] initials = getInitials(musicTitle);
+            boolean correctGuess = false;
+            int attemptsLeft = 3;
 
-            System.out.println("✨다음 노래 제목을 이어말하시오.(@기회 5번@)✨: ");
+            System.out.println("✨다음 노래 제목을 이어말하시오.(@기회 3번@)✨\n");
+            System.out.println("🍴👧🏻🍴 햇님이 음식 먹을 준비를 합니다");
+            System.out.println("냠냠! " + Arrays.toString(Arrays.copyOfRange(emoticons, 0, emoticonIndex + 1 )) + "\n");
+
             for (String initial : initials) {
-                System.out.print(initial);
+                System.out.print("♪   " + initial);
             }
             System.out.println();
 
-            while (true) {
-                System.out.print("✨노래 제목을 입력하거나 '힌트'를 입력하여 힌트를 받으세요✨: ");
+            while (attemptsLeft > 0) {
+                System.out.print("\n힌트를 원한다면 ✨힌트✨를 입력해주세요✨\n⟫⟫ 정답을 입력해주세요: ");
                 String guess = scanner.nextLine();
+
+                if (guess.equalsIgnoreCase("종료")) {
+                    System.out.println("\n3초 후 게임이 종료됩니다");
+                    System.out.println("게임 점수는 SCORE에 기록됩니다");
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    return;
+                }
 
                 if (guess.equalsIgnoreCase("힌트")) {
                     displayHint(musicTitle);
@@ -109,61 +146,41 @@ public class KoreanMusicInitialGame {
                     String formattedGuess = guess.replace("-", "").toLowerCase();
                     String formattedMusicTitle = musicTitle.replace("-", "").toLowerCase();
 
-                    int attempts = 4; // 오답 입력 시도 횟수
-                    while (!formattedGuess.equalsIgnoreCase(formattedMusicTitle)) {
-                        if (attempts == 0) {
-                            System.out.println("5번의 오답 시도로 게임에서 패배하였습니다.");
-                            return;
-                        } else if (guess.equalsIgnoreCase("힌트")) {
-                            displayHint(musicTitle);
-                        }else{
-                            System.out.println("틀렸습니다! 다시 시도하세요.");
-                            System.out.println("기회 " + attempts-- +"번 남았습니다.");
-                        }
-
-                        System.out.print("노래 제목을 입력해주세요: ");
-                        guess = scanner.nextLine();
-                        formattedGuess = guess.replace("-", "");
-                    }
-
                     if (formattedGuess.equals(formattedMusicTitle)) {
                         System.out.println("✨정답입니다!✨ 축하합니다!");
+                        scores.increaseScore(); // 문제를 맞출 때마다 점수 증가
+                        System.out.println("다음 문제입니다‼️\n");
+                        correctGuess = true;
                         break;
                     } else {
-                        System.out.println("틀렸습니다! 다시 시도하세요.");
+                        System.out.println("⚠️틀렸습니다!⚠️");
+                        System.out.println("\n기회 " + (--attemptsLeft) + "번 남았습니다.\n");
+                        if (attemptsLeft==0){
+                            System.out.println("   정답은 🚩"+formattedMusicTitle+"🚩입니다!!      ");
+                            correctGuess=true;
+                            break;
+                        }
                     }
                 }
             }
 
-            while (true) {
-                System.out.print("게임을 다시 하시겠습니까? (yes/no): ");
-                String playAgainInput = scanner.nextLine();
-                if (playAgainInput.equalsIgnoreCase("yes") || playAgainInput.equalsIgnoreCase("y")) {
-                    playAgain = true;
-                    break;
-                } else if (playAgainInput.equalsIgnoreCase("no") || playAgainInput.equalsIgnoreCase("n")) {
-                    playAgain = false;
-                    break;
-                } else {
-                    System.out.println("키워드를 제대로 입력하세요.");
-                }
+            if (!correctGuess) {
+                emoticonIndex--;
+//                System.out.println("🍴👧🏻🍴 햇님이 음식 하나를 먹었습니다");
+//                System.out.println("냠냠! " + Arrays.toString(Arrays.copyOfRange(emoticons, 0, emoticonIndex + 1)));
             }
         }
-
-        System.out.println("게임이 종료되었습니다. 감사합니다!");
+        System.out.println("🥲햇님이 음식을 다 먹어버렸습니다🥲 게임이 종료됩니다.");
     }
-
 
     private static String[] getInitials(String title) {
-        String[] words = new String[]{title.split("-")[0]}; // 쉼표(,)를 기준으로 전 단어를 words 배열에 담는다.
-        return words;
+        return new String[]{title.split("-")[0]};
     }
 
-    private static String getRandomMusicTitle(Random random) {
+    private static String getRandomMusicTitle() {
         List<String> keysAsArray = new ArrayList<>(musicTitleHints.keySet());
         return keysAsArray.get(random.nextInt(keysAsArray.size()));
     }
-
 
     private static void displayHint(String musicTitle) {
         String[] hints = musicTitleHints.get(musicTitle);
@@ -173,7 +190,23 @@ public class KoreanMusicInitialGame {
                 System.out.println(hint);
             }
         } else {
-            System.out.println("해당 노래의 힌트가 없습니다.");
+            System.out.println("해당 노래의 힌트는 없습니다!");
+        }
+    }
+
+    private static void askForRestart() {
+        while (true) {
+            System.out.print("게임을 다시 하시겠습니까? (yes/no): ");
+            String playAgainInput = scanner.nextLine();
+            if (playAgainInput.equalsIgnoreCase("yes") || playAgainInput.equalsIgnoreCase("y")) {
+                playAgain = true;
+                break;
+            } else if (playAgainInput.equalsIgnoreCase("no") || playAgainInput.equalsIgnoreCase("n")) {
+                playAgain = false;
+                break;
+            } else {
+                System.out.println("[yes/no] 중 하나를 입력해주세요🥲");
+            }
         }
     }
 }

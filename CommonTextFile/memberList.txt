@@ -12,3 +12,5 @@ qpqp,qpqp,1234,0,5,5
 ak47,총,1234,0,5,5
 hye,혜린,123,0,5,5
 ㅗㅛㄷ,ㅗㅛㄷ,123,0,5,5
+zxczxc,zxczxc,zxczxc,20,5,5
+asd,asd,asd,20,5,5
