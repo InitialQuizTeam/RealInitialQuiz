@@ -1,21 +1,22 @@
 package src;
 
-import src.initialQuizRiin.Sun;
-
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class KoreanMusicInitialGame {
-    static Scores scores = new Scores();
+
     private static Map<String, String[]> musicTitleHints;
     private static Scanner scanner = new Scanner(System.in);
     private static Random random = new Random();
     private static boolean playAgain = true;
-    private static String[] emoticons = {"🍕", "🌭", "🍔", "🍟", "🍰"};
+    private static final String[] emoticons = {"🍕", "🌭", "🍔", "🍟", "🍰"};
 
-    public static void main(String gameId) {
+    public static void main(String gameId, int saveScore) {
+        System.out.println("playAgain = " + playAgain);
+        //재시작할때 true로 안하면 게임 꺼짐! 주의...
+        playAgain = true;
         initializeMusicTitleHints();
-
+        Scores scores = new Scores(saveScore);
         System.out.println("노래 제목 이어말하기 게임이 시작됩니다.");
         System.out.println("노래 제목을 이어말하는 게임으로, 정답은 노래 제목 전체를 적어주세요");
         System.out.println("게임 종료를 원한다면 ✨종료✨라고 입력해주시고,");
@@ -26,14 +27,16 @@ public class KoreanMusicInitialGame {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+        int finalScore = 0;
         while (playAgain) {
-            playGame();
+        Scores scores2=     playGame(scores);
             askForRestart();
+            finalScore = scores2.getScore();
         }
 
         System.out.println("게임이 종료되었습니다. 감사합니다!");
-        System.out.println( gameId + "님 최종 점수 : " + scores.getScore() + "점");
+        System.out.println( gameId + "님 최종 점수 : " + finalScore + "점");
+        AccountManager.addScore(gameId, finalScore);
     }
 
     private static void initializeMusicTitleHints() {
@@ -108,17 +111,31 @@ public class KoreanMusicInitialGame {
     }
 
 
-    private static void playGame() {
-        int emoticonIndex = emoticons.length - 1;
-        while (playAgain && emoticonIndex >= 0) {
+    private static Scores playGame(Scores scores) {
+        //햇님이 밥
+        int emoticonIndex = emoticons.length;
+        String[] snacks = {"🍕", "🌭", "🍔", "🍟", "🍰"}; // 햇님의 간식
+        //<--------------------------------------------------
+
+        //게임시작
+        while (playAgain && emoticonIndex > 0) {
+
+            //테스트 목적
+//            System.out.println("emoticonIndex = " + emoticonIndex);
+
             String musicTitle = getRandomMusicTitle();
             String[] initials = getInitials(musicTitle);
             boolean correctGuess = false;
             int attemptsLeft = 3;
 
-            System.out.println("✨다음 노래 제목을 이어말하시오.(@기회 3번@)✨\n");
+            //
+            String eatItem = "";
+            for (int i = 0; i < emoticonIndex; i++) {
+                String namnam = snacks[i].toString();
+                eatItem += namnam;
+            }
             System.out.println("🍴👧🏻🍴 햇님이 음식 먹을 준비를 합니다");
-            System.out.println("냠냠! " + Arrays.toString(Arrays.copyOfRange(emoticons, 0, emoticonIndex + 1 )) + "\n");
+            System.out.printf("냠냠! %s (%d %% 남았습니다)\n", eatItem, emoticonIndex * 20);
 
             for (String initial : initials) {
                 System.out.print("♪   " + initial);
@@ -137,7 +154,7 @@ public class KoreanMusicInitialGame {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    return;
+                    return scores;
                 }
 
                 if (guess.equalsIgnoreCase("힌트")) {
@@ -157,6 +174,7 @@ public class KoreanMusicInitialGame {
                         System.out.println("\n기회 " + (--attemptsLeft) + "번 남았습니다.\n");
                         if (attemptsLeft==0){
                             System.out.println("   정답은 🚩"+formattedMusicTitle+"🚩입니다!!      ");
+                            emoticonIndex-=1; //기회 소진되어, 햇님이 음식 먹도록 -1
                             correctGuess=true;
                             break;
                         }
@@ -166,11 +184,12 @@ public class KoreanMusicInitialGame {
 
             if (!correctGuess) {
                 emoticonIndex--;
-//                System.out.println("🍴👧🏻🍴 햇님이 음식 하나를 먹었습니다");
-//                System.out.println("냠냠! " + Arrays.toString(Arrays.copyOfRange(emoticons, 0, emoticonIndex + 1)));
+
             }
         }
         System.out.println("🥲햇님이 음식을 다 먹어버렸습니다🥲 게임이 종료됩니다.");
+
+        return scores;
     }
 
     private static String[] getInitials(String title) {

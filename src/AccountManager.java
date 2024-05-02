@@ -263,6 +263,7 @@ public class AccountManager {
                             LoginId = user.getGameId();
                             truePassword = user.getPassWord();
                             saveScore = user.getScore();
+                            System.out.println("saveScore = " + saveScore);
 //                            System.out.println("truePassword = " + truePassword);
                             break;
                         }
@@ -364,12 +365,12 @@ public class AccountManager {
                     System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
                     //영화게임
                     GameMain gameMain = new GameMain();
-                    gameMain.Game(LoginId);
+                    gameMain.main(gameId,saveScore);
                     break;
                 case 2:
                     System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
                     KoreanMusicInitialGame koreanMusicInitialGame = new KoreanMusicInitialGame();
-                    koreanMusicInitialGame.main(gameId);
+                    koreanMusicInitialGame.main(gameId,saveScore);
                     //노래 퀴즈
                 case 3:
                     break;
