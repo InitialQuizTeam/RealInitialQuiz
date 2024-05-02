@@ -45,7 +45,8 @@ public class Main {
             System.out.println("☁︎        1. 회원가입                    ");
             System.out.println("☁︎        2. 로그인 ➤ 게임시작             "); //# 3. 영화 초성 게임 로그인 되면 나오도록
             System.out.println("☁︎        3. PW 찾기                    ");
-            System.out.println("☁︎        4. 게임 종료                   ");
+            System.out.println("☁︎        4. 랭킹 🏆                  ");
+            System.out.println("☁︎        5. 게임 종료                   ");
             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
             System.out.print(">> ");
             String inputString = null;
@@ -80,10 +81,15 @@ public class Main {
 
                     break;
                 case 4:
+                    //랭킹 표시
+                    AccountManager.UserInfoView();
+                    break;
+
+                case 5:
                     //종료
                     System.out.println("☁︎     종료합니다");
                     System.exit(0);
-
+                
                 default:
                     System.out.println("☁︎     메뉴를 잘못 선택했어요\n☁︎     다시 입력해주세요.");
                     break;
