@@ -331,56 +331,58 @@ public class AccountManager {
 
         //게임선택
 
-        Scanner sc = new Scanner(System.in);
-        menuBackMessage(); //돌아가기 메시지 디자인☁
-        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-        System.out.println("☁︎     1. 영화 초성 퀴즈");
-        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-        System.out.println("☁︎     2. 노래 맞추기");
-        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+
+            Scanner sc = new Scanner(System.in);
+            menuBackMessage(); //돌아가기 메시지 디자인☁
+            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+            System.out.println("☁︎     1. 영화 초성 퀴즈");
+            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+            System.out.println("☁︎     2. 노래 맞추기");
+            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
 
 
-        String inputString = null;
+            String inputString = null;
         while (true) {
             System.out.print("☁︎     진행할 게임을 선택하세요 ➤ ");
-            inputString = sc.nextLine();
-            if(inputString.equals("q")) {
-                moveMenuMessage(); //돌아가기 메시지 디자인2☁
-                return;
-            }
+                inputString = sc.nextLine();
+                if(inputString.equals("q")) {
+                    moveMenuMessage(); //돌아가기 메시지 디자인2☁
+                    return;
+                }
             boolean isInt = isInteger(inputString);
-            if (isInt) break;
-            else {
-                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                System.out.println("☁︎     숫자를 입력하세요.");
-                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-            }
+                if (isInt) break;
+                else {
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    System.out.println("☁︎     숫자를 입력하세요.");
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                }
         }
-        int menuNum = Integer.parseInt(inputString);
-        //
-        switch (menuNum) {
-            case 1:
-                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                //영화게임
-                GameMain gameMain = new GameMain();
-                gameMain.main(LoginId,saveScore);
-                break;
-            case 2:
-                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                KoreanMusicInitialGame koreanMusicInitialGame = new KoreanMusicInitialGame();
-                koreanMusicInitialGame.main(LoginId);
-                //노래 퀴즈
-            case 3:
-                break;
-            case 'q':
-                moveMenuMessage(); //돌아가기 메시지 디자인2☁
-                return; //메인으로 돌아가기
+            int menuNum = Integer.parseInt(inputString);
+            //
+            switch (menuNum) {
+                case 1:
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    //영화게임
+                    GameMain gameMain = new GameMain();
+                    gameMain.Game(LoginId);
+                    break;
+                case 2:
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    KoreanMusicInitialGame koreanMusicInitialGame = new KoreanMusicInitialGame();
+                    koreanMusicInitialGame.main(gameId);
+                    //노래 퀴즈
+                case 3:
+                    break;
+                case 'q':
+                    moveMenuMessage(); //돌아가기 메시지 디자인2☁
+                    return; //메인으로 돌아가기
 
-            default:
-                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                System.out.println("잘못 입력하셨습니다.");
-                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-        }
+                default:
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    System.out.println("잘못 입력하셨습니다.");
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+            }
+
 
 
 
