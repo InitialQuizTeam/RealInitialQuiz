@@ -20,7 +20,7 @@ public class Scores {
     public Scores() {
         //초기 점수를 0으로 한거임
         this.score = 0;
-        System.out.println("게임 종료! 최종 점수: " + getScore());
+        //System.out.println("게임 종료! 최종 점수: " + getScore());
     }
     public void increaseScore() {
         //한문제 맞을 때 마다 점수 10 증가시키는거임
@@ -30,7 +30,10 @@ public class Scores {
         return this.score;
     }
 
-
+    public void printFinalScore() {
+        // 게임 종료 시 최종 점수 출력
+        System.out.println("게임 종료! 최종 점수: " + getScore());
+    }
 
     public void FileExample() {
 
