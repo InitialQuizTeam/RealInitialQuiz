@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.Thread.sleep;
+import static src.Main.isInteger;
 
 public class AccountManager {
     /**
@@ -32,8 +33,18 @@ public class AccountManager {
     static String targetPath = ROOT_PATH + "/CommonTextFile/memberList.txt";
     static String tempPath = ROOT_PATH + "/CommonTextFile/temp.txt";
 
-
-
+    //돌아가기 메시지!
+    public static void menuBackMessage() {
+        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+        System.out.println("☁︎              [메뉴로 돌아가기:q]");
+        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+    }
+    //돌아가기 메시지2
+    public static void moveMenuMessage() {
+        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+        System.out.println("메인으로 돌아갑니다.");
+        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+    }
 
     ////////////////////
     // ☘️ 회원가입
@@ -112,18 +123,15 @@ public class AccountManager {
 
         //write
         try (FileWriter fw = new FileWriter(newfile, true)) {
-            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+
             Scanner sc = new Scanner(System.in);
             for (; ; ) {
-                System.out.println("☁︎                        [메뉴로 돌아가기:q]");
-                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                menuBackMessage(); //돌아가기 메시지 디자인☁
                 System.out.print("☁︎     사용할 아이디를 입력하세요: ");
                 gameId = sc.nextLine();
                 if (gameId.equals("") || gameId == null) System.out.println("☁︎     아이디를 다시 입력하세요.");
                 else if (gameId.equals("q")) {
-                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                    System.out.println("메뉴로 돌아갑니다.");
-                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    moveMenuMessage(); //돌아가기 메시지 디자인2☁
                     return;
                 } else {
                     //아이디 중복 검사
@@ -148,30 +156,22 @@ public class AccountManager {
             }
 
             for (; ; ) {
-                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                System.out.println("☁︎                        [메뉴로 돌아가기:q]");
-                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                menuBackMessage(); //돌아가기 메시지 디자인☁
                 System.out.print("☁︎     이름을 입력하세요: ");
                 userName = sc.nextLine();
                 if (userName.equals("") || userName == null) System.out.println("☁︎     이름을 다시 입력하세요.");
                 else if (userName.equals("q")) {
-                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                    System.out.println("메뉴로 돌아갑니다.");
-                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    moveMenuMessage(); //돌아가기 메시지 디자인2☁
                     return;
                 } else break;
             }
             for (; ; ) {
-                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                System.out.println("☁︎                        [메뉴로 돌아가기:q]");
-                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                menuBackMessage(); //돌아가기 메시지 디자인☁
                 System.out.print("☁︎     사용할 비밀번호를 입력하세요: ");
                 passWord = sc.nextLine();
                 if (passWord.equals("") || passWord == null) System.out.println("☁︎     비밀번호를 다시 입력하세요.");
                 else if (passWord.equals("q")) {
-                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                    System.out.println("메뉴로 돌아갑니다.");
-                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    moveMenuMessage(); //돌아가기 메시지 디자인2☁
                     return;
                 } else break;
             }
@@ -240,17 +240,13 @@ public class AccountManager {
             //데이터 뿌려주기 (테스트용)
 //            System.out.println(userList);
 
-            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-            System.out.println("☁︎                        [메뉴로 돌아가기:q]");
-            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+            menuBackMessage(); //돌아가기 메시지 디자인☁
             for (; ; ) {
                 System.out.print("☁︎     접속할 아이디를 입력하세요: ");
                 gameId = sc.nextLine();
                 if (gameId.equals("") || gameId == null) System.out.println("☁︎     아이디를 다시 입력하세요.");
                 else if (gameId.equals("q")) {
-                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                    System.out.println("메뉴로 돌아갑니다.");
-                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    moveMenuMessage(); //돌아가기 메시지 디자인2☁
                     return;
                 } else {
                     //아이디 null 아닐때
@@ -284,16 +280,12 @@ public class AccountManager {
             }
             //비밀번호 검증
             for (; ; ) {
-                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                System.out.println("☁︎                        [메뉴로 돌아가기:q]");
-                System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                menuBackMessage(); //돌아가기 메시지 디자인☁
                 System.out.print("☁︎     비밀번호를 입력하세요: ");
                 password = sc.nextLine();
                 if (password.equals("") || password == null) System.out.println("☁︎     비밀번호를 다시 입력하세요.");
                 else if (password.equals("q")) {
-                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                    System.out.println("메뉴로 돌아갑니다.");
-                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    moveMenuMessage(); //돌아가기 메시지 디자인2☁
                     return;
                 } else {
                     //비밀번호 검사
@@ -334,12 +326,62 @@ public class AccountManager {
 //            System.out.println("file is opened1");
 //        }
 
-//        System.out.println("로그인해서 여기로");
-//        GameMain gameMain = new GameMain();
-//        gameMain.Game(LoginId);
 
-        KoreanMusicInitialGame koreanMusicInitialGame = new KoreanMusicInitialGame();
-        koreanMusicInitialGame.main(gameId);
+        //게임선택
+
+            Scanner sc = new Scanner(System.in);
+            menuBackMessage(); //돌아가기 메시지 디자인☁
+            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+            System.out.println("☁︎     1. 영화 초성 퀴즈");
+            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+            System.out.println("☁︎     2. 노래 맞추기");
+            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+
+
+            String inputString = null;
+        while (true) {
+            System.out.print("☁︎     진행할 게임을 선택하세요 ➤ ");
+                inputString = sc.nextLine();
+                if(inputString.equals("q")) {
+                    moveMenuMessage(); //돌아가기 메시지 디자인2☁
+                    return;
+                }
+            boolean isInt = isInteger(inputString);
+                if (isInt) break;
+                else {
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    System.out.println("☁︎     숫자를 입력하세요.");
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                }
+        }
+            int menuNum = Integer.parseInt(inputString);
+            //
+            switch (menuNum) {
+                case 1:
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    //영화게임
+                    GameMain gameMain = new GameMain();
+                    gameMain.Game(LoginId);
+                    break;
+                case 2:
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    KoreanMusicInitialGame koreanMusicInitialGame = new KoreanMusicInitialGame();
+                    koreanMusicInitialGame.main(gameId);
+                    //노래 퀴즈
+                case 3:
+                    break;
+                case 'q':
+                    moveMenuMessage(); //돌아가기 메시지 디자인2☁
+                    return; //메인으로 돌아가기
+
+                default:
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    System.out.println("잘못 입력하셨습니다.");
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+            }
+
+
+
 
     }//end TryLogin
 
@@ -385,18 +427,14 @@ public class AccountManager {
             //데이터 뿌려주기 (테스트용)
 //            System.out.println(userList);
 
-            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-            System.out.println("☁︎                        [메뉴로 돌아가기:q]");
-            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+            menuBackMessage(); //돌아가기 메시지 디자인☁
 
             for (; ; ) {
                 System.out.print("☁︎     찾고싶은 아이디를 입력하세요: ");
                 gameId = sc.nextLine();
                 if (gameId.equals("") || gameId == null) System.out.println("☁︎     아이디를 다시 입력하세요.");
                 else if (gameId.equals("q")) {
-                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
-                    System.out.println("메뉴로 돌아갑니다.");
-                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    moveMenuMessage(); //돌아가기 메시지 디자인2☁
                     return;
                 } else {
                     //아이디 null 아닐때
@@ -467,19 +505,8 @@ public class AccountManager {
 
         File sameFileName = new File(targetPath);
 
-//        if(originfile.renameTo(sameFileName)){
-//            // if the file is renamed
-//            System.out.println("file is closed");
-//        }else{
-//            // if the file didnt accept the renaming operation
-//            System.out.println("file is opened");
-//        }
 
         File tempfile = new File(tempPath);
-//        System.out.println("tempfile = " + tempfile);
-
-//        System.out.println("GameUserName = " + GameUserName);
-//        System.out.println("Gamescore = " + Gamescore);
 
         if (!tempfile.exists()) {
             try {
@@ -497,10 +524,6 @@ public class AccountManager {
         //접근할 파일 위치 지정 : targetPath: memberList.txt
 //        try (FileReader fr = new FileReader(targetPath)) {
         try (BufferedReader br = new BufferedReader(new FileReader(targetPath))) {
-            //읽는 방법 = 2
-            //보조스트링 활용
-            //텍스트를 라인 단위로 읽어들이는 보조 스트림
-//            BufferedReader br = new BufferedReader(fr);
 
             //회원 정보 저장할 리스트 생성
             List<User> userList = new ArrayList<>();
@@ -571,7 +594,7 @@ public class AccountManager {
 
         //System.out.print(tempText); //데이터 찍어보기
 //        try (FileWriter fw = new FileWriter(tempfile)) {
-        try (BufferedWriter bw = new BufferedWriter(new java.io.FileWriter(tempfile));) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(tempfile));) {
             bw.write(tempText, 0, tempText.length());
             bw.close();
         } catch (IOException e) {
@@ -580,19 +603,6 @@ public class AccountManager {
 
         DeleteFileFunction delete = new DeleteFileFunction();
         delete.delete();
-//        try {
-//            System.out.println("originfile = " + originfile);
-//            if (originfile.exists()) {
-//                Files.delete(Paths.get(targetPath));
-//            }
-//            if(originfile.exists()){
-//                originfile.deleteOnExit();
-//            }
-//
-//        } catch (Exception e) {
-//            System.out.println("삭제에 문제가 있습니다~!");
-//            System.out.println(e);
-//        }
 
         try {
             sleep(1500); //
