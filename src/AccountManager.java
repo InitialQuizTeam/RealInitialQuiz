@@ -335,8 +335,12 @@ public class AccountManager {
 //        }
 
 //        System.out.println("로그인해서 여기로");
-        GameMain gameMain = new GameMain();
-        gameMain.Game(LoginId);
+//        GameMain gameMain = new GameMain();
+//        gameMain.Game(LoginId);
+
+        KoreanMusicInitialGame koreanMusicInitialGame = new KoreanMusicInitialGame();
+        koreanMusicInitialGame.main(gameId);
+
     }//end TryLogin
 
     /////////////////////
