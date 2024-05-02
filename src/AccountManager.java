@@ -326,6 +326,7 @@ public class AccountManager {
 //            System.out.println("file is opened1");
 //        }
 
+
         //게임선택
 
             Scanner sc = new Scanner(System.in);
@@ -364,6 +365,8 @@ public class AccountManager {
                     break;
                 case 2:
                     System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
+                    KoreanMusicInitialGame koreanMusicInitialGame = new KoreanMusicInitialGame();
+                    koreanMusicInitialGame.main(gameId);
                     //노래 퀴즈
                 case 3:
                     break;
@@ -376,6 +379,7 @@ public class AccountManager {
                     System.out.println("잘못 입력하셨습니다.");
                     System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
             }
+
 
 
 
