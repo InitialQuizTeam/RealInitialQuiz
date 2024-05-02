@@ -8,8 +8,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import static java.lang.Thread.sleep;
 import static src.Main.isInteger;
@@ -660,7 +662,12 @@ public class AccountManager {
                 userList.add(user);
             }
 
-            System.out.println(userList);
+            // System.out.println(userList);
+            // 랭킹으로 분류
+            List<User> userList2 = userList.stream().sorted(Comparator.comparing(User::getScore).reversed()).collect(Collectors.toList());
+
+            System.out.println("==================");
+            System.out.println(userList2);
 
 
         } catch (Exception e) {
