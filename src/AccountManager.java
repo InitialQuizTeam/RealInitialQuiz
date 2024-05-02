@@ -199,6 +199,7 @@ public class AccountManager {
         String password = null; //비밀번호
         String truePassword = null;
         String LoginId = null;
+        int saveScore = 0;
         File originfile = new File(targetPath);
         File sameFileName = new File(targetPath);
 
@@ -261,6 +262,7 @@ public class AccountManager {
                             id_Check = true;
                             LoginId = user.getGameId();
                             truePassword = user.getPassWord();
+                            saveScore = user.getScore();
 //                            System.out.println("truePassword = " + truePassword);
                             break;
                         }
@@ -329,6 +331,7 @@ public class AccountManager {
 
         //게임선택
 
+
             Scanner sc = new Scanner(System.in);
             menuBackMessage(); //돌아가기 메시지 디자인☁
             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
@@ -379,6 +382,7 @@ public class AccountManager {
                     System.out.println("잘못 입력하셨습니다.");
                     System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎");
             }
+
 
 
 
