@@ -16,6 +16,7 @@ public class KoreanMusicInitialGame {
         //재시작할때 true로 안하면 게임 꺼짐! 주의...
         playAgain = true;
         initializeMusicTitleHints();
+        //점수 객체 생성
         Scores scores = new Scores(saveScore);
         System.out.println("노래 제목 이어말하기 게임이 시작됩니다.");
         System.out.println("노래 제목을 이어말하는 게임으로, 정답은 노래 제목 전체를 적어주세요");
@@ -29,9 +30,13 @@ public class KoreanMusicInitialGame {
             e.printStackTrace();
         }
         int finalScore = 0;
+        //게임 시작
         while (playAgain) {
         Scores scores2=     playGame(scores);
-            askForRestart();
+            //게임 재시작 묻는 기능
+            //askForRestart();
+            //게임 재시작 안하도록 false 설정
+            playAgain = false;
             finalScore = scores2.getScore();
         }
 
@@ -220,7 +225,10 @@ public class KoreanMusicInitialGame {
     }
 
     private static void askForRestart() {
+
+
         while (true) {
+
             System.out.print("게임을 다시 하시겠습니까? (yes/no): ");
 
             String playAgainInput = scanner.nextLine();
