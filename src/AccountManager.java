@@ -226,10 +226,6 @@ public class AccountManager {
                 String s = br.readLine();
                 if (s == null) break;
 
-                //읽는 방법 = 1
-//            int read = fr.read();
-//            System.out.println("(char)read = " + (char)read);
-                //파일 생성 명령
                 //읽은 것을 콤마로 구분하여 분리하여 배열로 만든다
                 String[] split = s.split(",");
 //                System.out.println(Arrays.toString(split));
@@ -266,10 +262,13 @@ public class AccountManager {
                             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
                             System.out.println("☁︎     아이디가 확인되었습니다.");
                             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
-                            id_Check = true;
-                            LoginId = user.getGameId();
-                            truePassword = user.getPassWord();
-                            saveScore = user.getScore();
+
+
+                            //아이디 확인 되면 정보 가져옴
+                            id_Check = true;                    //아이디 존재 확인 변수
+                            LoginId = user.getGameId();         // 로그인 아이디
+                            truePassword = user.getPassWord();  // 로그인 비밀번호
+                            saveScore = user.getScore();        //저장되어 있는 점수
                             System.out.println("☁︎     내점수 : " + saveScore);
 //                            System.out.println("truePassword = " + truePassword);
                             break;
@@ -304,16 +303,6 @@ public class AccountManager {
                         System.out.println("☁︎     비밀번호가 확인되었습니다.");
                         System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
                         //로그인 되면 탈출하고 게임 가기
-//                        File originfile = new File(targetPath);
-//                        File sameFileName = new File(targetPath);
-
-//                        if(originfile.renameTo(sameFileName)){
-//                            // if the file is renamed
-//                            System.out.println("file is closed1");
-//                        }else{
-//                            // if the file didnt accept the renaming operation
-//                            System.out.println("file is opened1");
-//                        }
 
                         break;
                     } else {
@@ -322,24 +311,13 @@ public class AccountManager {
                         System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
                     }
                 }
-
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        if(originfile.renameTo(sameFileName)){
-//            // if the file is renamed
-//            System.out.println("file is closed1");
-//        }else{
-//            // if the file didnt accept the renaming operation
-//            System.out.println("file is opened1");
-//        }
-
 
         //게임선택
-
-
         Scanner sc = new Scanner(System.in);
         menuBackMessage(); //돌아가기 메시지 디자인☁
         System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
@@ -366,12 +344,13 @@ public class AccountManager {
             }
         }
         int menuNum = Integer.parseInt(inputString);
-        //
+        //게임 고르는 메뉴
         switch (menuNum) {
             case 1:
                 System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
                 //영화게임
                 GameMain gameMain = new GameMain();
+                // gameId : 로그인 된 아이디, saveScore : txt 파일에 저장되어 있던 점수
                 gameMain.main(gameId, saveScore);
                 break;
             case 2:
@@ -601,8 +580,7 @@ public class AccountManager {
             e.printStackTrace();
         }
 
-        //System.out.print(tempText); //데이터 찍어보기
-//        try (FileWriter fw = new FileWriter(tempfile)) {
+        //게임한 점수 temp 파일로 저장 temp.txt
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(tempfile));) {
             bw.write(tempText, 0, tempText.length());
             bw.close();
@@ -610,6 +588,7 @@ public class AccountManager {
             throw new RuntimeException(e);
         }
 
+        //기존 파일 삭제 memberList.txt
         DeleteFileFunction delete = new DeleteFileFunction();
         delete.delete();
 
@@ -618,8 +597,7 @@ public class AccountManager {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-//tempfile.renameTo(originfile);
-        //파일 이전 작업
+        //temp.txt -> memberList.txt 로 바꿔주는 함수
         try {
             Files.move(tempfile.toPath(), originfile.toPath());
         } catch (IOException e) {
@@ -630,9 +608,9 @@ public class AccountManager {
     } //end addScore
 
 
-    //##사용 안하는 함수
+
     ////////////////////////////////////
-    // // ☘️ 회원 정보 보여주기 - 추후에 필요하면 관리자 메뉴로 사용
+    // // ☘️ 랭킹 정보 보여주기 - top10 -
     static void UserInfoView() {
         //접근할 파일 위치 지정 : targetPath: memberList.txt
         try (FileReader fr = new FileReader(targetPath)) {

@@ -70,9 +70,7 @@ public class Main {
                    
 
                     AccountManager.TryLogin();
-//                    AccountManager.addScore("dragon",33);
-                    //GameMain gameMain = new GameMain();
-                      //gameMain.main();
+
 
                     break;
                 case 3:
