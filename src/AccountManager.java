@@ -183,7 +183,7 @@ public class AccountManager {
 
             //파일로 저장
             fw.write(outputMessage);
-            sc.close();
+//            sc.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
