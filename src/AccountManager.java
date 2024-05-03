@@ -17,6 +17,10 @@ import static java.lang.Thread.sleep;
 import static src.Main.isInteger;
 
 public class AccountManager {
+    public static final String FONT_GREEN = "\u001B[32m";
+    public static final String FONT_BLUE = "\u001B[34m";
+    public static final String FONT_PURPLE = "\u001B[35m";
+
     /**
      * @problem => 절대 경로일 경우, Mac /Windows 간 호환문제 있음
      * @Solution => 상대 경로 처리
@@ -662,7 +666,7 @@ public class AccountManager {
 
             // System.out.println(userList);
             // 랭킹으로 분류
-            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
+            System.out.println(FONT_GREEN+"☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
             System.out.println("          게임 순위");
             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
             System.out.println(" 순위  아이디        점수");

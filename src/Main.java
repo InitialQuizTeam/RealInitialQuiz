@@ -55,7 +55,7 @@ public class Main {
                 boolean isInt = isInteger(inputString);
 //                System.out.println(isInt);
                 if (isInt) break;
-                else System.out.println("☁︎     숫자를 입력하세요.");
+                else System.out.print("☁︎     숫자를 입력하세요 : ");
             }
             int menuNum = Integer.parseInt(inputString);
 
@@ -87,11 +87,15 @@ public class Main {
 
                 case 5:
                     //종료
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
                     System.out.println("☁︎     종료합니다");
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
                     System.exit(0);
                 
                 default:
+                    System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
                     System.out.println("☁︎     메뉴를 잘못 선택했어요\n☁︎     다시 입력해주세요.");
+
                     break;
 
             }
