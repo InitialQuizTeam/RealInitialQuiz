@@ -12,7 +12,7 @@ public class KoreanMusicInitialGame {
     private static final String[] emoticons = {"🍕", "🌭", "🍔", "🍟", "🍰"};
 
     public static void main(String gameId, int saveScore) {
-        System.out.println("playAgain = " + playAgain);
+//        System.out.println("playAgain = " + playAgain);
         //재시작할때 true로 안하면 게임 꺼짐! 주의...
         playAgain = true;
         initializeMusicTitleHints();
