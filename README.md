@@ -23,3 +23,12 @@
 ---
 - 경곤 --팀장
   - https://github.com/ckk914
+- 예진
+  - https://github.com/zinit95
+- 병모
+  - https://github.com/kimbyeongmo
+- 혜린
+  - https://github.com/hyerin11
+
+--- 
+
