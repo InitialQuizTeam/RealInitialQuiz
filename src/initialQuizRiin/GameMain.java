@@ -47,6 +47,7 @@ public class GameMain {
         System.out.println("게임 점수는 SCORE에 기록됩니다");
 
         System.out.println( gameId + "님 최종 점수 : " + scores.getScore() + "점");
+        //최종 점수 저장
         AccountManager.addScore(gameId, scores.getScore());
         //Langking.LangkingStart(gameId, scores.getScore());
 
