@@ -12,7 +12,7 @@ public class KoreanMusicInitialGame {
     private static final String[] emoticons = {"🍕", "🌭", "🍔", "🍟", "🍰"};
 
     public static void main(String gameId, int saveScore) {
-        System.out.println("playAgain = " + playAgain);
+//        System.out.println("playAgain = " + playAgain);
         //재시작할때 true로 안하면 게임 꺼짐! 주의...
         playAgain = true;
         initializeMusicTitleHints();
@@ -22,6 +22,7 @@ public class KoreanMusicInitialGame {
         System.out.println("게임 종료를 원한다면 ✨종료✨라고 입력해주시고,");
         System.out.println("힌트를 원한다면 ✨힌트✨라고 입력해주세요!");
         System.out.println("3초 후 게임이 시작됩니다\n");
+        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
         try {
             TimeUnit.SECONDS.sleep(3);
         } catch (InterruptedException e) {
@@ -104,7 +105,7 @@ public class KoreanMusicInitialGame {
         musicHints.put("걱정말아-요 그대",worry);
         musicHints.put("마에스-트로",maestro);
         musicHints.put("비밀번호-486",password);
-        musicHints.put("신촌-을 못 가",sinchon);
+        musicHints.put("신촌-을 못가",sinchon);
         musicHints.put("바람-기억",wind);
 
         return musicHints;
@@ -134,8 +135,9 @@ public class KoreanMusicInitialGame {
                 String namnam = snacks[i].toString();
                 eatItem += namnam;
             }
-            System.out.println("🍴👧🏻🍴 햇님이 음식 먹을 준비를 합니다");
-            System.out.printf("냠냠! %s (%d %% 남았습니다)\n", eatItem, emoticonIndex * 20);
+            System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
+            System.out.println("☁︎        햇님이 음식 먹을 준비를 합니다");
+            System.out.printf("냠냠!🥄👧🏻🥢 %s (음식이 %d %% 남았습니다)\n", eatItem, emoticonIndex * 20);
 
             for (String initial : initials) {
                 System.out.print("♪   " + initial);
@@ -148,7 +150,7 @@ public class KoreanMusicInitialGame {
 
                 if (guess.equalsIgnoreCase("종료")) {
                     System.out.println("\n3초 후 게임이 종료됩니다");
-                    System.out.println("게임 점수는 SCORE에 기록됩니다");
+                    System.out.println("☁︎        게임 점수는 SCORE에 기록됩니다");
                     try {
                         Thread.sleep(3000);
                     } catch (InterruptedException e) {
@@ -170,8 +172,11 @@ public class KoreanMusicInitialGame {
                         correctGuess = true;
                         break;
                     } else {
+                        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
                         System.out.println("⚠️틀렸습니다!⚠️");
+                        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
                         System.out.println("\n기회 " + (--attemptsLeft) + "번 남았습니다.\n");
+                        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
                         if (attemptsLeft==0){
                             System.out.println("   정답은 🚩"+formattedMusicTitle+"🚩입니다!!      ");
                             emoticonIndex-=1; //기회 소진되어, 햇님이 음식 먹도록 -1
@@ -187,8 +192,9 @@ public class KoreanMusicInitialGame {
 
             }
         }
-        System.out.println("🥲햇님이 음식을 다 먹어버렸습니다🥲 게임이 종료됩니다.");
-
+        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
+        System.out.println("\"냠냠!\uD83E\uDD44\uD83D\uDC67\uD83C\uDFFB\uD83E\uDD62 햇님이 음식을 다 먹어버렸습니다\n 게임이 종료됩니다.");
+        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
         return scores;
     }
 
@@ -216,6 +222,7 @@ public class KoreanMusicInitialGame {
     private static void askForRestart() {
         while (true) {
             System.out.print("게임을 다시 하시겠습니까? (yes/no): ");
+
             String playAgainInput = scanner.nextLine();
             if (playAgainInput.equalsIgnoreCase("yes") || playAgainInput.equalsIgnoreCase("y")) {
                 playAgain = true;
