@@ -546,13 +546,13 @@ public class AccountManager {
 
                 //반복 시작
                 for (User user : userList) {
-
+                    //기존 게임 아이디 찾음
                     if (gameId.equals(user.getGameId())) {
 //                            tempText += "👻";
                         tempText += user.getGameId() + ",";
                         tempText += user.getUserName() + ",";
                         tempText += user.getPassWord() + ",";
-                        tempText += Gamescore + ",";               //점수
+                        tempText += Gamescore + ",";               //게임한 점수 업데이트
                         tempText += user.getGameLife() + ",";
                         tempText += user.getHint() + "\n";
 //                            System.out.print(tempText);
@@ -599,7 +599,7 @@ public class AccountManager {
         }
         //temp.txt -> memberList.txt 로 바꿔주는 함수
         try {
-            Files.move(tempfile.toPath(), originfile.toPath());
+            Files.move(tempfile.toPath(), originfile.toPath());  //temp -> memberList.txt 로 바꿈
         } catch (IOException e) {
             System.out.println("이전에 실패했습니다.");
             System.out.println(e);
@@ -621,7 +621,8 @@ public class AccountManager {
 
             //회원 정보 저장할 리스트 생성
             List<User> userList = new ArrayList<>();
-
+            
+            //텍스트파일에서 읽기 s 가 null일때까지 읽음
             while (true) {
                 String s = br.readLine();
                 if (s == null) break;
@@ -649,6 +650,7 @@ public class AccountManager {
             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
             System.out.println(" 순위  아이디        점수");
             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
+
             List<User> userList2 =
                     userList.stream().
                             sorted(Comparator.comparing(User::getScore).reversed())
