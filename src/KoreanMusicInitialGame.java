@@ -18,11 +18,13 @@ public class KoreanMusicInitialGame {
         initializeMusicTitleHints();
         //점수 객체 생성
         Scores scores = new Scores(saveScore);
-        System.out.println("노래 제목 이어말하기 게임이 시작됩니다.");
-        System.out.println("노래 제목을 이어말하는 게임으로, 정답은 노래 제목 전체를 적어주세요");
-        System.out.println("게임 종료를 원한다면 ✨종료✨라고 입력해주시고,");
-        System.out.println("힌트를 원한다면 ✨힌트✨라고 입력해주세요!");
+        System.out.println("\n🎼노래 제목 이어말하기 게임이 시작됩니다❗");
+        System.out.println("\n예시) Q.강남!!   A.강남스타일\n\n정답은 노래 제목 전체를 적어주시고,");
+        System.out.println("입짧은햇님🥄👧🏻🥢이 음식을 다 먹기 전 정답을 맞춰주세요!");
+        System.out.println("게임 종료를 원한다면 ✨종료✨를");
+        System.out.println("게임 힌트를 원한다면 ✨힌트✨라고 입력해주세요\n");
         System.out.println("3초 후 게임이 시작됩니다\n");
+        System.out.println("3!!  2!!  1!!!\n");
         System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
         try {
             TimeUnit.SECONDS.sleep(3);
@@ -40,8 +42,8 @@ public class KoreanMusicInitialGame {
             finalScore = scores2.getScore();
         }
 
-        System.out.println("게임이 종료되었습니다. 감사합니다!");
-        System.out.println( gameId + "님 최종 점수 : " + finalScore + "점");
+        //System.out.println("게임이 종료되었습니다. 감사합니다!");
+        System.out.println("\n🎉" + gameId + "님 최종 점수 : " + finalScore + "점\n");
         AccountManager.addScore(gameId, finalScore);
     }
 
@@ -88,7 +90,7 @@ public class KoreanMusicInitialGame {
         musicHints.put("강남-스타일",gangnam);
         musicHints.put("모든 날,- 모든 순간",everyday);
         musicHints.put("뚜두-뚜두",ddudu);
-        musicHints.put("총 맞은- 것처럼",gun);
+        musicHints.put("총 맞은- 것 처럼",gun);
         musicHints.put("너를- 만나",meet);
         musicHints.put("한-숨",hansoom);
         musicHints.put("첫눈처럼- 너에게 가겠다",snow);
@@ -141,11 +143,11 @@ public class KoreanMusicInitialGame {
                 eatItem += namnam;
             }
             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
-            System.out.println("☁︎        햇님이 음식 먹을 준비를 합니다");
-            System.out.printf("냠냠!🥄👧🏻🥢 %s (음식이 %d %% 남았습니다)\n", eatItem, emoticonIndex * 20);
+            System.out.println("입짧은햇님이 음식 먹을 준비를 합니다");
+            System.out.printf("냠냠!🥄👧🏻🥢   %s (음식이 %d %% 남았습니다)\n", eatItem, emoticonIndex * 20);
 
             for (String initial : initials) {
-                System.out.print("♪   " + initial);
+                System.out.print("\n♪   " + initial);
             }
             System.out.println();
 
@@ -155,7 +157,7 @@ public class KoreanMusicInitialGame {
 
                 if (guess.equalsIgnoreCase("종료")) {
                     System.out.println("\n3초 후 게임이 종료됩니다");
-                    System.out.println("☁︎        게임 점수는 SCORE에 기록됩니다");
+                    System.out.println("게임 점수는 SCORE에 기록됩니다");
                     try {
                         Thread.sleep(3000);
                     } catch (InterruptedException e) {
@@ -171,16 +173,16 @@ public class KoreanMusicInitialGame {
                     String formattedMusicTitle = musicTitle.replace("-", "").toLowerCase();
 
                     if (formattedGuess.equals(formattedMusicTitle)) {
-                        System.out.println("✨정답입니다!✨ 축하합니다!");
+                        System.out.println("\n     ✨정답입니다!✨");
                         scores.increaseScore(); // 문제를 맞출 때마다 점수 증가
-                        System.out.println("다음 문제입니다‼️\n");
+                        System.out.println("\n다음 문제입니다‼️\n");
                         correctGuess = true;
                         break;
                     } else {
-                        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
-                        System.out.println("⚠️틀렸습니다!⚠️");
-                        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
-                        System.out.println("\n기회 " + (--attemptsLeft) + "번 남았습니다.\n");
+                        //System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
+                        System.out.println("\n⚠️틀렸습니다!⚠️");
+                        //System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
+                        System.out.println("기회 " + (--attemptsLeft) + "번 남았습니다\n");
                         System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
                         if (attemptsLeft==0){
                             System.out.println("   정답은 🚩"+formattedMusicTitle+"🚩입니다!!      ");
@@ -198,7 +200,7 @@ public class KoreanMusicInitialGame {
             }
         }
         System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
-        System.out.println("\"냠냠!\uD83E\uDD44\uD83D\uDC67\uD83C\uDFFB\uD83E\uDD62 햇님이 음식을 다 먹어버렸습니다\n 게임이 종료됩니다.");
+        System.out.println("냠냠!\uD83E\uDD44\uD83D\uDC67\uD83C\uDFFB\uD83E\uDD62 햇님이 음식을 다 먹어버려\n 게임이 종료됩니다.");
         System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
         return scores;
     }
@@ -215,7 +217,7 @@ public class KoreanMusicInitialGame {
     private static void displayHint(String musicTitle) {
         String[] hints = musicTitleHints.get(musicTitle);
         if (hints != null) {
-            System.out.println("힌트: ");
+            System.out.println("\n🎁 힌트 ");
             for (String hint : hints) {
                 System.out.println(hint);
             }

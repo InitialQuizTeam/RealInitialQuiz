@@ -13,15 +13,18 @@ public class GameMain {
         Scores scores = new Scores(gameScore); // Scores 객체 생성
         Scanner scanner = new Scanner(System.in);
 //👻 영화 및 드라마 목록 리스트 배열
-        String[] movies = {"몬스터주식회사", "인터스텔라", "라이언킹", "타이타닉", "드림하이", "오징어게임", "사랑의 불시착", "부산행", "그 해 우리는",
-                "토이스토리", "더글로리", "이상한 변호사 우영우", "사이코지만 괜찮아", "기생충", "킹덤", "수상한 그녀", "겨울왕국", "도둑들",
+        String[] movies = {"몬스터주식회사", "인터스텔라", "라이언킹", "타이타닉", "드림하이", "오징어 게임", "부산행", "그 해 우리는",
+                "토이스토리", "더글로리", "사이코지만 괜찮아", "기생충", "킹덤", "수상한 그녀", "겨울왕국", "도둑들",
                 "위대한 쇼맨", "님아 그 강을 건너지 마오", "소년시대", "서울의 봄", "라라랜드", "해리포터", "아바타", "스즈메의 문단속",
                 "보헤미안 랩소디", "어바웃 타임", "펜트하우스", "호텔 델루나", "이태원 클라쓰", "별에서 온 그대"};
         Random random = new Random();
 
-        System.out.println("드라마/영화 초성 맞추기 게임이 시작됩니다.");
-        System.out.println("게임 종료를 원한다면 ✨종료✨라고 입력해주세요");
+        System.out.println("\n📢 드라마/영화 초성 맞추기 게임이 시작됩니다");
+        System.out.println("총 5번의 기회!! 한번 틀릴 때 마다 하나의 이모지 힌트를 제공합니다!");
+        System.out.println("입짧은햇님🥄👧🏻🥢이 음식을 다 먹기 전 정답을 맞춰주세요!");
+        System.out.println("게임 종료를 원한다면 ✨종료✨라고 입력해주세요\n");
         System.out.println("3초 후 게임이 시작됩니다\n");
+        System.out.println("3!!  2!!  1!!!\n");
         System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
         try {
             TimeUnit.SECONDS.sleep(3);
@@ -65,9 +68,9 @@ public class GameMain {
                 eatItem+=namnam;
             }
             System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
-            System.out.println("☁︎        햇님이 음식 먹을 준비를 합니다");
-            System.out.printf("냠냠!🥄👧🏻🥢 %s (음식이 %d %% 남았습니다)\n",eatItem,chances*20);
-            System.out.println("▶ 초성: " + HangulUtils.getChosungString(movie) + "\n");
+            System.out.println("입짧은 햇님이 음식 먹을 준비를 합니다❗");
+            System.out.printf("냠냠!🥄👧🏻🥢   %s (음식이 %d %% 남았습니다)\n",eatItem,chances*20);
+            System.out.println("\n▶ 초성: " + HangulUtils.getChosungString(movie) + "\n");
 
             System.out.print("⟫⟫ 정답을 입력하세요: ");
             String guess = scanner.nextLine();
@@ -89,22 +92,22 @@ public class GameMain {
             }
         }
 
-        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
-        System.out.println("냠냠!🥄👧🏻🥢 햇님이 음식을 다 먹어버렸습니다\n정답은 '" + movie + "'입니다.");
-        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
+        //System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
+        System.out.println("\n냠냠!🥄👧🏻🥢 햇님이 음식을 다 먹어버렸습니다\n정답은 '" + movie + "'입니다.\n");
+        //System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
         return false;
     }
 
     private static void printHint(int[] hint, int remainingChances) {
-        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
+        //System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
         System.out.print("\n⚠️틀렸습니다!⚠️\n");
-        System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
-        System.out.print("힌트: ");
+        //System.out.println("☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎☁︎︎");
+        System.out.print("▶ 힌트: ");
 
         for (int i = 0; i < 5 - remainingChances; i++) {
             System.out.print(Character.toChars(hint[i]));
         }
-        System.out.println(" (기회 남은 횟수: " + remainingChances + ")");
+        System.out.println(" (기회 남은 횟수: " + remainingChances + ")\n");
     }
 
     //👻 힌트 보여주는 메서드
@@ -120,10 +123,8 @@ public class GameMain {
                 return new int[]{0x1F6A2, 0x2764, 0xFE0F, 0x1F30A, 0x2744, 0xFE0F, 0x1F3A4};
             case "드림하이":
                 return new int[]{0x1F3A4,0x1F4D8 , 0x1F3A7, 0x1F3B5,0x2B50};
-            case "오징어게임":
+            case "오징어 게임":
                 return new int[]{0x1F3B2, 0x1F4B0, 0x1F465, 0x1F525, 0x1F480};
-            case "사랑의 불시착":
-                return new int[]{0x1FA96, 0x2708, 0x1F3DD, 0x1F491, 0x1F525};
             case "부산행":
                 return new int[]{0x1F682, 0x1F480, 0x1F3D9, 0x1F9DF, 0x200D, 0x2642, 0xFE0F, 0x1F525};
             case "그 해 우리는":
@@ -132,8 +133,6 @@ public class GameMain {
                 return new int[]{0x1F9F8, 0x1F920, 0x1F680, 0x1F468, 0x200D, 0x1F680, 0x1F4AB};
             case "더글로리":
                 return new int[]{0x1F393, 0x1F4BC, 0x1F4A1, 0x1F50D, 0x1F4B0};
-            case "이상한 변호사 우영우":
-                return new int[]{0x2696, 0x1F468, 0x200D, 0x2696, 0xFE0F, 0x1F4BC, 0x1F440, 0x1F47B};
             case "사이코지만 괜찮아":
                 return new int[]{0x1F9E0, 0x1F494, 0x1F50E, 0x1F6CB, 0x1F60A};
             case "기생충":

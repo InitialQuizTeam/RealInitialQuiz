@@ -32,7 +32,7 @@ public class Scores {
 
     public void printFinalScore() {
         // 게임 종료 시 최종 점수 출력
-        System.out.println("게임 종료! 최종 점수: " + getScore());
+        System.out.println("게임 종료!\n최종 점수: " + getScore());
     }
 
     public void FileExample() {
