@@ -18,7 +18,7 @@ public class Scores {
 
     //scores 생성자
     public Scores(int score) {
-        //초기 점수를 0으로 한거임
+        //기존 점수 가져옴
         this.score = score;
         //System.out.println("게임 종료! 최종 점수: " + getScore());
     }
